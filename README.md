@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## TDMB — Home of Movies
 =======
 movies-website is a site that gives an API for movies in this project i used that API to get the movies and display them with some details.
+=======
+ovies-website is a site that gives an API for movies in this project i used that API to get the movies and display them with some details.
+>>>>>>> 61e6c5e5ce71f771df71bcfe47ec8ba5108e21bb
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 >>>>>>> ce5831a34f43e2b8c394ad4537fba0ecdde0c351
 
