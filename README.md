@@ -1,5 +1,6 @@
-movies-website is a site that gives an API for movies in this project i used that API to get the movies and display them with some details.
+ovies-website is a site that gives an API for movies in this project i used that API to get the movies and display them with some details.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+>>>>>>> ce5831a34f43e2b8c394ad4537fba0ecdde0c351
 
 ## Getting Started
 
