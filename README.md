@@ -1,37 +1,72 @@
-TDMB is a site that gives an API for movies in this project i used that API to get the movies and display them with some details.
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## TDMB — Home of Movies
 
-## Getting Started
+Browse popular movies, search by title, open a movie details page, and save favourites for later.
 
-First, run the development server:
+### Features
+
+- **Movie discovery**: Popular movies list with pagination
+- **Search**: Find movies by keyword
+- **Movie details**: Dedicated details page per movie
+- **Favourites**: Save/remove favourites (stored in `sessionStorage`)
+- **API + static fallback**: Uses TMDB when available, otherwise falls back to bundled static movie data
+
+### Tech stack
+
+- **Next.js (App Router)** + **React**
+- **TypeScript**
+- **Redux Toolkit** for state management
+- **Axios** for API calls
+- **Bootstrap / React-Bootstrap** for UI
+
+### Pages / routes
+
+- **Home**: `/` (movies list + search + pagination)
+- **Movie details**: `/movies/[moviesId]`
+- **Favourites**: `/Favourites`
+
+### Getting started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### TMDB API key (optional)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is built to work with The Movie Database (TMDB) API.
 
-## Learn More
+- **Current behavior**: the API key is hardcoded in `src/reduxStore/reducers/movieSlice.tsx` (`const apiKey = 123`).
+- **Recommended**: use an environment variable instead.
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+NEXT_PUBLIC_TMDB_API_KEY=YOUR_KEY_HERE
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Then update `src/reduxStore/reducers/movieSlice.tsx` to use it (replace the hardcoded key):
 
-## Deploy on Vercel
+- `const apiKey = Number(process.env.NEXT_PUBLIC_TMDB_API_KEY);`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev      # start dev server
+npm run build    # build for production
+npm run start    # start production server
+npm run lint     # lint
+```
+
+### Notes
+
+- **Favourites persistence**: favourites are saved in `sessionStorage`, so they persist per-tab/session (cleared when the browser session ends).
+
